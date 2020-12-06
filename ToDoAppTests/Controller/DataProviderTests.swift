@@ -100,7 +100,7 @@ class DataProviderTests: XCTestCase {
         XCTAssertEqual(cell.task, task)
     }
     
-    func testForRowInSectionЩтуCallsConfigure() {
+    func testForRowInSectionOneCallsConfigure() {
         tableView.register(MockTaskCell.self, forCellReuseIdentifier: String(describing: TaskCell.self))
         
         let task = Task(title: "Foo")

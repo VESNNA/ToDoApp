@@ -9,6 +9,22 @@
 import UIKit
 
 class TaskCell: UITableViewCell {
+    
     @IBOutlet weak var titleLbl: UILabel!
-    func configure(withTask task: Task) {}
+    @IBOutlet weak var locationLbl: UILabel!
+    @IBOutlet weak var dateLbl: UILabel!
+    
+    func configure(withTask task: Task) {
+        self.titleLbl.text = task.title
+        
+        self.locationLbl.text = task.location?.name
+        
+        let df = DateFormatter()
+        df.dateFormat = "dd.MM.yy"
+        
+        if let date = task.date {
+            let dateString = df.string(from: date)
+            dateLbl.text = dateString
+        }
+    }
 }

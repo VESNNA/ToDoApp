@@ -9,5 +9,6 @@
 import UIKit
 
 class TaskCell: UITableViewCell {
+    @IBOutlet weak var titleLbl: UILabel!
     func configure(withTask task: Task) {}
 }

@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import CoreLocation
 @testable import ToDoApp
 
 class DetailViewControllerTests: XCTestCase {
@@ -38,8 +39,42 @@ class DetailViewControllerTests: XCTestCase {
         XCTAssertTrue(sut.dateLbl.isDescendant(of: sut.view))
     }
     
+    func testHasLocationLabel() {
+        XCTAssertNotNil(sut.locationLbl)
+        XCTAssertTrue(sut.locationLbl.isDescendant(of: sut.view))
+    }
+    
     func testHasMapView() {
         XCTAssertNotNil(sut.mapView)
         XCTAssertTrue(sut.mapView.isDescendant(of: sut.view))
+    }
+    
+    func setupTaskAndAppearanceTransition() {
+        let coordinate = CLLocationCoordinate2D(latitude: 11, longitude: 22)
+        let location = Location(name: "Baz", coordinate: coordinate)
+        let date = Date(timeIntervalSince1970: 1577836800)
+        let task = Task(title: "Foo", description: "Bar", date: date, location: location)
+        
+        sut.task = task
+        sut.beginAppearanceTransition(true, animated: true)
+        sut.endAppearanceTransition()
+    }
+    
+    func testSettingTaskSetsTitleLabel() {
+        setupTaskAndAppearanceTransition()
+        
+        XCTAssertEqual(sut.titleLbl.text, "Foo")
+    }
+    
+    func testSettingTaskSetsDescriptionLabel() {
+        setupTaskAndAppearanceTransition()
+        
+        XCTAssertEqual(sut.descriptionLbl.text, "Bar")
+    }
+    
+    func testSettingTaskSetsLocationLabel() {
+        setupTaskAndAppearanceTransition()
+        
+        XCTAssertEqual(sut.locationLbl.text, "Baz")
     }
 }

@@ -116,6 +116,13 @@
                                 <rect key="frame" x="94" y="298" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bx3-yU-R7d">
+                                <rect key="frame" x="186" y="256" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1xM-ek-Cl8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -123,6 +130,7 @@
                     <connections>
                         <outlet property="dateLbl" destination="L6O-Rq-iqr" id="ilB-x4-7XT"/>
                         <outlet property="descriptionLbl" destination="g25-Ws-Fak" id="84N-yM-Mlx"/>
+                        <outlet property="locationLbl" destination="Bx3-yU-R7d" id="iuC-xo-FbM"/>
                         <outlet property="mapView" destination="8IP-Qe-q5y" id="NCv-nj-kv1"/>
                         <outlet property="titleLbl" destination="JDG-8V-Cav" id="9p6-5R-zIg"/>
                     </connections>

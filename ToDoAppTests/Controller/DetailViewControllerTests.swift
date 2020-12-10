@@ -62,19 +62,27 @@ class DetailViewControllerTests: XCTestCase {
     
     func testSettingTaskSetsTitleLabel() {
         setupTaskAndAppearanceTransition()
-        
         XCTAssertEqual(sut.titleLbl.text, "Foo")
     }
     
     func testSettingTaskSetsDescriptionLabel() {
         setupTaskAndAppearanceTransition()
-        
         XCTAssertEqual(sut.descriptionLbl.text, "Bar")
     }
     
     func testSettingTaskSetsLocationLabel() {
         setupTaskAndAppearanceTransition()
-        
         XCTAssertEqual(sut.locationLbl.text, "Baz")
+    }
+    
+    func testSettingTaskSetsDateLabel() {
+        setupTaskAndAppearanceTransition()
+        XCTAssertEqual(sut.dateLbl.text, "01.01.20")
+    }
+    
+    func testSettingTaskSetsMapView() {
+        setupTaskAndAppearanceTransition()
+        XCTAssertEqual(sut.mapView.centerCoordinate.latitude, 11, accuracy: 0.001)
+        XCTAssertEqual(sut.mapView.centerCoordinate.longitude, 22, accuracy: 0.001)
     }
 }

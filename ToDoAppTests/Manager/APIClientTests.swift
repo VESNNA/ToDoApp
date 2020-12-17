@@ -48,7 +48,7 @@ class APIClientTests: XCTestCase {
         }
         
         let urlQueryItemName = URLQueryItem(name: "name", value: "name")
-        let urlQueryItemPassword = URLQueryItem(name: "password", value: "password")
+        let urlQueryItemPassword = URLQueryItem(name: "password", value: "%qwerty")
         
         XCTAssertTrue(queryItems.contains(urlQueryItemName))
         XCTAssertTrue(queryItems.contains(urlQueryItemPassword))

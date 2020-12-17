@@ -30,6 +30,9 @@
 		5B9CA20A249A23330005D671 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9CA209249A23330005D671 /* DataProvider.swift */; };
 		5B9CA20C249A9F0E0005D671 /* DataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9CA20B249A9F0E0005D671 /* DataProviderTests.swift */; };
 		5B9CA20E249CECF90005D671 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9CA20D249CECF90005D671 /* TaskCell.swift */; };
+		5BCAC9CF258BEF6D006D66CC /* APIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAC9CE258BEF6D006D66CC /* APIClientTests.swift */; };
+		5BCAC9D4258BF0B0006D66CC /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAC9D3258BF0B0006D66CC /* APIClient.swift */; };
+		5BCAC9DD258C0D65006D66CC /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAC9DC258C0D65006D66CC /* String+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +82,9 @@
 		5B9CA209249A23330005D671 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		5B9CA20B249A9F0E0005D671 /* DataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderTests.swift; sourceTree = "<group>"; };
 		5B9CA20D249CECF90005D671 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		5BCAC9CE258BEF6D006D66CC /* APIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientTests.swift; sourceTree = "<group>"; };
+		5BCAC9D3258BF0B0006D66CC /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		5BCAC9DC258C0D65006D66CC /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +135,7 @@
 		5B33142324988D1C00EB8D72 /* ToDoApp */ = {
 			isa = PBXGroup;
 			children = (
+				5BCAC9DB258C0D51006D66CC /* Extensions */,
 				5B481C81249A12D3009C8A75 /* Manager */,
 				5B33145424988D3000EB8D72 /* Model */,
 				5B33145624988D4800EB8D72 /* View */,
@@ -214,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				5B481C7F249A128B009C8A75 /* TaskManagerTests.swift */,
+				5BCAC9CE258BEF6D006D66CC /* APIClientTests.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -222,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				5B481C82249A12E2009C8A75 /* TaskManager.swift */,
+				5BCAC9D3258BF0B0006D66CC /* APIClient.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -243,6 +252,14 @@
 				5B696DA52586890300C8F2B6 /* NewTaskViewControllerTests.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		5BCAC9DB258C0D51006D66CC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5BCAC9DC258C0D65006D66CC /* String+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,7 +397,9 @@
 				5B481C83249A12E2009C8A75 /* TaskManager.swift in Sources */,
 				5B33145D24988F4800EB8D72 /* Task.swift in Sources */,
 				5B33142924988D1C00EB8D72 /* TaskListViewController.swift in Sources */,
+				5BCAC9DD258C0D65006D66CC /* String+Extensions.swift in Sources */,
 				5B9CA20A249A23330005D671 /* DataProvider.swift in Sources */,
+				5BCAC9D4258BF0B0006D66CC /* APIClient.swift in Sources */,
 				5B9CA20E249CECF90005D671 /* TaskCell.swift in Sources */,
 				5B696DAE258689AC00C8F2B6 /* NewTaskViewController.swift in Sources */,
 				5B8378992498963000BE19AF /* Location.swift in Sources */,
@@ -396,6 +415,7 @@
 				5B33145A24988EB200EB8D72 /* TaskTests.swift in Sources */,
 				5B83789B2498977A00BE19AF /* LocationTests.swift in Sources */,
 				5B827FDD257ECCCF0070FEEC /* TaskCellTests.swift in Sources */,
+				5BCAC9CF258BEF6D006D66CC /* APIClientTests.swift in Sources */,
 				5B696DA62586890300C8F2B6 /* NewTaskViewControllerTests.swift in Sources */,
 				5B9CA20C249A9F0E0005D671 /* DataProviderTests.swift in Sources */,
 				5B481C80249A128B009C8A75 /* TaskManagerTests.swift in Sources */,

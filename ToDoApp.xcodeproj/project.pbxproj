@@ -148,11 +148,11 @@
 		5B33143A24988D1D00EB8D72 /* ToDoAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				5BB9C6DE2592265400FE5878 /* Supporting files */,
 				5B827FDB257ECCB30070FEEC /* View */,
 				5B9CA206249A1F520005D671 /* Controller */,
 				5B33145B24988ECA00EB8D72 /* Model */,
 				5B481C7E249A1273009C8A75 /* Manager */,
-				5B33143B24988D1D00EB8D72 /* ToDoAppTests.swift */,
 				5B33143D24988D1D00EB8D72 /* Info.plist */,
 			);
 			path = ToDoAppTests;
@@ -252,6 +252,14 @@
 				5B696DA52586890300C8F2B6 /* NewTaskViewControllerTests.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		5BB9C6DE2592265400FE5878 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				5B33143B24988D1D00EB8D72 /* ToDoAppTests.swift */,
+			);
+			path = "Supporting files";
 			sourceTree = "<group>";
 		};
 		5BCAC9DB258C0D51006D66CC /* Extensions */ = {

@@ -22,7 +22,7 @@ class NewTaskViewController: UIViewController {
     @IBOutlet var saveBtn: UIButton!
     @IBOutlet var cancelBtn: UIButton!
     
-    @IBAction func save () {
+    @IBAction func save() {
         let titleString = titleTextField.text
         let locationString = locationTextField.text
         let dateString = df.date(from: dateTextField.text!) //Unsecure
@@ -46,4 +46,13 @@ class NewTaskViewController: UIViewController {
         return df
     }
     
+    override func viewDidLoad() {
+        titleTextField.placeholder = "Title"
+        locationTextField.placeholder = "Location"
+        descriptionTextField.placeholder = "Description"
+        dateTextField.placeholder = "Date"
+        addressTextField.placeholder = "Address"
+        saveBtn.setTitle("Save", for: .normal)
+        cancelBtn.setTitle("Cancel", for: .normal)
+    }
 }

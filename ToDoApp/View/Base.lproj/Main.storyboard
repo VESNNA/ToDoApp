@@ -188,14 +188,14 @@
                                 <rect key="frame" x="92" y="387" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="save" destination="z40-hD-XFS" eventType="touchUpInside" id="cZq-J2-dxZ"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Am6-Ib-z2a">
                                 <rect key="frame" x="289" y="387" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="save" destination="z40-hD-XFS" eventType="touchUpInside" id="LJy-qT-AFa"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="S59-2l-CSv"/>
@@ -203,11 +203,11 @@
                     </view>
                     <connections>
                         <outlet property="addressTextField" destination="7XS-67-laA" id="eK3-ed-9vL"/>
-                        <outlet property="cancelBtn" destination="Am6-Ib-z2a" id="OtT-qy-tby"/>
+                        <outlet property="cancelBtn" destination="fhK-aN-Zj9" id="xuU-H9-Jj5"/>
                         <outlet property="dateTextField" destination="edt-rZ-TYs" id="g0s-Dn-Cn3"/>
                         <outlet property="descriptionTextField" destination="yIu-Hq-rQS" id="acC-VY-9Bd"/>
                         <outlet property="locationTextField" destination="Va2-zj-Gx2" id="10s-fL-3HS"/>
-                        <outlet property="saveBtn" destination="fhK-aN-Zj9" id="AsC-nE-HyS"/>
+                        <outlet property="saveBtn" destination="Am6-Ib-z2a" id="yk9-TH-aaO"/>
                         <outlet property="titleTextField" destination="e0W-bE-ukG" id="Mq7-pC-INq"/>
                     </connections>
                 </viewController>

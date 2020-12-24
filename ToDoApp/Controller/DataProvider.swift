@@ -40,6 +40,17 @@ extension DataProvider: UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let section = Section(rawValue: indexPath.section) else { fatalError() }
+        
+        switch section {
+        case .todo:
+            let task = taskManager?.task(at: indexPath.row)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DidSelectRowNotification"), object: self, userInfo: ["task" : task])
+        case .done: break
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TaskCell.self), for: indexPath) as! TaskCell

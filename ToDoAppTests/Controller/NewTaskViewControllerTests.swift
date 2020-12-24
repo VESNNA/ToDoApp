@@ -136,7 +136,9 @@ class NewTaskViewControllerTests: XCTestCase {
         
         mockNewTaskVC.save()
         
-        XCTAssertTrue(mockNewTaskVC.isDissmised)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+            XCTAssertTrue(mockNewTaskVC.isDissmised)
+        }
     }
 }
 

@@ -10,7 +10,7 @@ import XCTest
 @testable import ToDoApp
 
 class TaskTests: XCTestCase {
-
+    
     func testInitTaskWithTitle() {
         let task = Task(title: "Foo")
         
@@ -64,5 +64,15 @@ class TaskTests: XCTestCase {
         let createdTask = Task(dict: dictionary)
         
         XCTAssertEqual(task, createdTask)
+    }
+    
+    func testCanBeSerializedIntoDictionary() {
+        let date = Date(timeIntervalSince1970: 10)
+        let location = Location(name: "Baz")
+        let task = Task(title: "Foo", description: "Bar", date: date, location: location)
+        
+        let generatedTask = Task(dict: task.dict)
+        
+        XCTAssertEqual(task, generatedTask)
     }
 }

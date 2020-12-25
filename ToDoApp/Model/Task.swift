@@ -14,6 +14,18 @@ struct Task {
     let date: Date
     let location: Location?
     
+    var dict: [String : Any] {
+        var dict: [String: Any] = [:]
+        dict["title"] = title
+        dict["description"] = description
+        dict["date"] = date
+        if let location = location {
+            dict["location"] = location.dict
+        }
+        
+        return dict
+    }
+    
     init(title: String,
          description: String? = nil,
          date: Date? = nil,
@@ -43,7 +55,8 @@ extension Task: Equatable {
     static func == (lhs: Task, rhs: Task) -> Bool {
         if lhs.title == rhs.title,
             lhs.description == rhs.description,
-            lhs.location == rhs.location {
+            lhs.location == rhs.location,
+            lhs.date == rhs.date{
             return true
         }
         return false

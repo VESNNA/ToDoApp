@@ -14,6 +14,7 @@ class TaskListViewControllerTests: XCTestCase {
     var sut: TaskListViewController!
     
     override func setUpWithError() throws {
+        super.setUp()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: String(describing: TaskListViewController.self))
         sut = vc as? TaskListViewController
@@ -25,7 +26,7 @@ class TaskListViewControllerTests: XCTestCase {
         
     }
 
-    func testWhenViewIsLoadedTableViewNotNill() {
+    func testWhenViewIsLoadedTableViewNotNil() {
         XCTAssertNotNil(sut.tableView)
     }
     
@@ -47,8 +48,8 @@ class TaskListViewControllerTests: XCTestCase {
     }
     
     func testTaskListVCHasBarButtonWithSelfAsTarget() {
-        let targer = sut.navigationItem.rightBarButtonItem?.target
-        XCTAssertEqual(targer as? TaskListViewController, sut)
+        let target = sut.navigationItem.rightBarButtonItem?.target
+        XCTAssertEqual(target as? TaskListViewController, sut)
     }
     
     func presentingNewTaskViewController() -> NewTaskViewController {
@@ -89,8 +90,8 @@ class TaskListViewControllerTests: XCTestCase {
     
     func testTappingCellSendingNotification() {
         let task = Task(title: "Foo")
-        sut.dataProvider.taskManager?.add(task: task)
-        expectation(forNotification: NSNotification.Name(rawValue: "DidSelectRowNotification"), object: nil) { notification -> Bool in
+        sut.dataProvider.taskManager!.add(task: task)
+        expectation(forNotification: NSNotification.Name(rawValue: "DidSelectRow notification"), object: nil) { notification -> Bool in
             
             guard let taskFromNotification = notification.userInfo?["task"] as? Task else { return false }
             
@@ -103,8 +104,8 @@ class TaskListViewControllerTests: XCTestCase {
     }
     
     func testSelectedCellNotificationPushesDetailVC() {
-        let mockNavigationControler = MockNavigationController(rootViewController: sut)
-        UIApplication.shared.keyWindow?.rootViewController = mockNavigationControler
+        let mockNavigationController = MockNavigationController(rootViewController: sut)
+        UIApplication.shared.keyWindow?.rootViewController = mockNavigationController
         
         sut.loadViewIfNeeded()
         
@@ -115,7 +116,7 @@ class TaskListViewControllerTests: XCTestCase {
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DidSelectRow notification"), object: self, userInfo: ["task" : task1])
         
-        guard let detailViewController = mockNavigationControler.pushedViewController as? DetailViewController else {
+        guard let detailViewController = mockNavigationController.pushedViewController as? DetailViewController else {
             XCTFail()
             return
         }

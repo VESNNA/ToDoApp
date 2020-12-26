@@ -26,7 +26,7 @@ class NewTaskViewController: UIViewController {
         let titleString = titleTextField.text
         let locationString = locationTextField.text
         let dateString = df.date(from: dateTextField.text!) //Unsecure
-        let descriprionString = descriptionTextField.text
+        let descriptionString = descriptionTextField.text
         let addressString = addressTextField.text
         
         geocoder.geocodeAddressString(addressString!) { [unowned self] (placemarks, error) in
@@ -34,7 +34,7 @@ class NewTaskViewController: UIViewController {
             let coordinate = placemark?.location?.coordinate
             let location = Location(name: locationString!, coordinate: coordinate)
             
-            let task = Task(title: titleString!, description: descriprionString, date: dateString, location: location)
+            let task = Task(title: titleString!, description: descriptionString, date: dateString, location: location)
             self.taskManager.add(task: task)
             
             DispatchQueue.main.async {

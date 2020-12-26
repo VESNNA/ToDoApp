@@ -15,7 +15,7 @@ struct Location {
     let coordinate: CLLocationCoordinate2D?
     
     var dict: [String : Any] {
-        var dict: [String: Any] = [:]
+        var dict: [String : Any] = [:]
         dict["name"] = name
         if let coordinate = coordinate {
             dict["latitude"] = coordinate.latitude
@@ -28,7 +28,6 @@ struct Location {
         self.name = name
         self.coordinate = coordinate
     }
-    
 }
 
 extension Location {
@@ -41,14 +40,15 @@ extension Location {
         } else {
             self.coordinate = nil
         }
-        
-        
     }
 }
 
 extension Location: Equatable {
     static func == (lhs: Location, rhs: Location) -> Bool {
-        guard rhs.coordinate?.latitude == lhs.coordinate?.latitude && rhs.coordinate?.longitude == lhs.coordinate?.longitude && rhs.name == rhs.name else { return false }
+        guard
+            rhs.coordinate?.latitude == lhs.coordinate?.latitude &&
+            rhs.coordinate?.longitude == lhs.coordinate?.longitude &&
+            rhs.name == lhs.name else { return false }
         return true
     }
 }

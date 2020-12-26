@@ -38,8 +38,8 @@ struct Task {
 }
 
 extension Task {
-    typealias PlistDict = [String : Any]
-    init?(dict: PlistDict) {
+    typealias PlistDictionary = [String : Any]
+    init?(dict: PlistDictionary) {
         self.title = dict["title"] as! String
         self.description = dict["description"] as? String
         self.date = dict["date"] as? Date ?? Date()
@@ -55,8 +55,7 @@ extension Task: Equatable {
     static func == (lhs: Task, rhs: Task) -> Bool {
         if lhs.title == rhs.title,
             lhs.description == rhs.description,
-            lhs.location == rhs.location,
-            lhs.date == rhs.date{
+            lhs.location == rhs.location {
             return true
         }
         return false

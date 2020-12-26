@@ -16,6 +16,7 @@ class NewTaskViewControllerTests: XCTestCase {
     var placemark: MockCLPlacemark!
 
     override func setUpWithError() throws {
+        super.setUp()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         sut = storyboard.instantiateViewController(withIdentifier: String(describing: NewTaskViewController.self)) as? NewTaskViewController
         sut.loadViewIfNeeded()
@@ -163,7 +164,7 @@ extension NewTaskViewControllerTests {
 
 extension NewTaskViewControllerTests {
     class MockNewTaskViewController: NewTaskViewController {
-        var isDissmised = true
+        var isDissmised = false
         
         override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
             isDissmised = true

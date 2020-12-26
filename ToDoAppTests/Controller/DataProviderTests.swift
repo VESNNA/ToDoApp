@@ -17,11 +17,12 @@ class DataProviderTests: XCTestCase {
     var controller: TaskListViewController!
     
     override func setUpWithError() throws {
+        super.setUp()
         sut = DataProvider()
         sut.taskManager = TaskManager()
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        controller = storyboard.instantiateViewController(identifier: String(describing: TaskListViewController.self)) as? TaskListViewController
+        controller = storyboard.instantiateViewController(withIdentifier: String(describing: TaskListViewController.self)) as? TaskListViewController
         controller.loadViewIfNeeded()
         
         tableView = controller.tableView
@@ -30,7 +31,8 @@ class DataProviderTests: XCTestCase {
     }
     
     override func tearDownWithError() throws {
-        
+        sut.taskManager?.removeAll()
+        super.tearDown()
     }
     
     func testNumberOfSectionsIsTwo() {
@@ -77,16 +79,16 @@ class DataProviderTests: XCTestCase {
         XCTAssertTrue(cell is TaskCell)
     }
     
-    func cellForRowAtIndexPathDequeuesCellFromTableView() {
+    func testCellForRowAtIndexPathDequeuesCellFromTableView() {
         let mockTableView = MockTableView.mockTableView(withDataSource: sut)
         sut.taskManager?.add(task: Task(title: "Foo"))
         mockTableView.reloadData()
         _ = mockTableView.cellForRow(at: IndexPath(row: 0, section: 0))
         
-        XCTAssert(mockTableView.cellIsDequeued)
+        XCTAssertTrue(mockTableView.cellIsDequeued)
     }
     
-    func testForRowInSectionZeroCallsConfigure() {
+    func testCellForRowInSectionZeroCallsConfigure() {
         let mockTableView = MockTableView.mockTableView(withDataSource: sut)
         
         let task = Task(title: "Foo")
@@ -98,7 +100,7 @@ class DataProviderTests: XCTestCase {
         XCTAssertEqual(cell.task, task)
     }
     
-    func testForRowInSectionOneCallsConfigure() {
+    func testCellForRowInSectionOneCallsConfigure() {
         let mockTableView = MockTableView.mockTableView(withDataSource: sut)
         
         let task = Task(title: "Foo")
@@ -129,7 +131,9 @@ class DataProviderTests: XCTestCase {
         let task = Task(title: "Foo")
         sut.taskManager?.add(task: task)
         
-        tableView.dataSource?.tableView?(tableView, commit: .delete, forRowAt: IndexPath(row: 0, section: 0))
+        tableView.dataSource?.tableView?(tableView,
+                                         commit: .delete,
+                                         forRowAt: IndexPath(row: 0, section: 0))
         
         XCTAssertEqual(sut.taskManager?.tasksCount, 0)
         XCTAssertEqual(sut.taskManager?.doneTasksCount, 1)
@@ -141,7 +145,9 @@ class DataProviderTests: XCTestCase {
         sut.taskManager?.checkTask(at: 0)
         tableView.reloadData()
         
-        tableView.dataSource?.tableView?(tableView, commit: .delete, forRowAt: IndexPath(row: 0, section: 1))
+        tableView.dataSource?.tableView?(tableView,
+                                         commit: .delete,
+                                         forRowAt: IndexPath(row: 0, section: 1))
         
         XCTAssertEqual(sut.taskManager?.tasksCount, 1)
         XCTAssertEqual(sut.taskManager?.doneTasksCount, 0)

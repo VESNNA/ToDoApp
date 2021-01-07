@@ -25,13 +25,16 @@ class TaskCell: UITableViewCell {
         if done {
             let attributedString = NSAttributedString(string: task.title, attributes: [NSAttributedString.Key.strikethroughStyle : NSUnderlineStyle.single.rawValue])
             titleLbl.attributedText = attributedString
-            dateLbl = nil
-            locationLbl = nil
+            dateLbl.text = ""
+            locationLbl.text = ""
+            backgroundColor  = #colorLiteral(red: 0.9230422456, green: 0.9230422456, blue: 0.9230422456, alpha: 1)
         } else {
             let dateString = dateFormatter.string(from: task.date)
             dateLbl.text = dateString
-            self.titleLbl.text = task.title
+            let nonAttributedString = NSAttributedString(string: task.title, attributes: [:])
+            self.titleLbl.attributedText = nonAttributedString
             self.locationLbl.text = task.location?.name
+            backgroundColor = .white
         }
     }
 }
